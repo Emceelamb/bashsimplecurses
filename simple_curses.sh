@@ -599,3 +599,14 @@ main_loop (){
         BSC_POSY=0
     done
 }
+
+no_loop(){
+    bsc_term_init
+    bsc_init_chars
+    tput il $(tput lines) >>$BSC_BUFFER
+    main >> $BSC_BUFFER 
+    refresh
+    reset_colors
+    tput cnorm
+}
+
